@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <title>Update Info</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script type='text/javascript' language='javascript' src='http://docs.web/resource/js/jquery.min.js'></script>
+    <style>
+        body {
+            width: 300px;
+            overflow: hidden;
+        }
+
+        .main {
+            padding: 10px auto;
+        }
+
+        .title {
+            margin: 10px 0px;
+        }
+
+        .footer {
+            padding-bottom: 10px;
+        }
+
+        input[name] {
+            width: 230px;
+            background: transparent;
+            border: 0px;
+            border-bottom: 1px #333 solid;
+            color: #fff;
+            outline: none;
+        }
+        #commit {
+            background: transparent;
+            color: #fff;
+            border: 1px #666 solid;
+            cursor: pointer;
+            border-radius: 3px;
+            margin-left: 5px;
+        }
+    </style>
+    <script type='text/javascript' language='javascript'>
+        function REQUEST(name) {
+            name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results == null ? "" : decodeURIComponent(results[1]);
+        }
+
+        $(document).ready(function () {
+            var id = REQUEST('id');
+            var title = decodeURIComponent(REQUEST('title'));
+            var src = REQUEST('src');
+            var callback = REQUEST('callback');
+            $('input[name="id"]').val(id);
+            $('input[name="title"]').val(title);
+            $('input[name="src"]').val(src);
+
+            $('#commit').on('click', function () {
+                var data = $("form").serialize();
+                $.post('/act.php', data, function (res) {
+                    eval('top.window.parent.' + callback + '()');
+                });
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="title">☺ Update Info</div>
+        <div>
+            <form action="/act.php?act=upinfo" method="get">
+                <input name="act" type="hidden" value="upinfo" />
+                <input name="id" type="hidden" />
+                <input name="title" type="text" autocomplete="off" /><br />
+                <input onfocus="this.select()" name="src" type="text" autocomplete="off" />
+                <input type="button" value="Submit" id="commit" />
+            </form>
+        </div>
+    </div>
+    <div class="footer"></div>
+</body>
+
+</html>

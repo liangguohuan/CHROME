@@ -1,0 +1,156 @@
+/* scroll bar start */
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: rgb(153, 153, 153);
+}
+
+body::-webkit-scrollbar {
+    width: 6px;
+    background-color: rgb(153, 153, 153);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #222222;
+}
+
+/* scroll bar end */
+
+body {
+    font-family: monospace;
+    font-size: 13px;
+    color: #999 !important;
+    background-color: #1c1f21;
+}
+
+a {
+    text-decoration: none;
+    font-size: 13px;
+    cursor: pointer;
+    color: #999;
+}
+
+a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+tr>td:nth-child(1n+2) {
+    text-align: center;
+}
+
+#main {
+    margin: 0 auto;
+}
+
+#header {
+    width: 1344px;
+}
+
+#list {
+    margin-top: 10px;
+}
+
+#example {
+    position: absolute;
+    left: -20000px;
+    top: -20000px;
+}
+
+.dataTables_wrapper .dataTables_length {
+    color: #ccc !important;
+}
+
+.dataTables_wrapper .dataTables_info {
+    color: #666 !important;
+}
+
+.dataTables_wrapper {
+    margin-top: 15px;
+}
+
+.dataTables_wrapper .dataTables_paginate a.paginate_button {
+    color: #fff !important;
+    border: 1px solid #111;
+    background-color: #585858;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #585858), color-stop(100%, #111));
+    background: -webkit-linear-gradient(top, #585858 0%, #111 100%);
+    background: -moz-linear-gradient(top, #585858 0%, #111 100%);
+    background: -ms-linear-gradient(top, #585858 0%, #111 100%);
+    background: -o-linear-gradient(top, #585858 0%, #111 100%);
+    background: linear-gradient(to bottom, #585858 0%, #111 100%);
+}
+
+.box-item {
+    width: 222px;
+    float: left;
+    margin: 0 1px;
+    position: relative;
+}
+
+.box-item a {
+    outline: none;
+}
+
+.box-img {
+    position: relative;
+    overflow: hidden;
+    height: 160px;
+    margin: 0 0 5px;
+}
+
+.box-img img {
+    margin-left: -50px;
+    margin-top: -40px;
+    width: 320px;
+    height: 240px;
+}
+
+.box-title {
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-right: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.box-operate {
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    width: 20px;
+    height: 30px;
+    transition: all 300ms;
+    font-size: 28px;
+    color: #ff0000;
+}
+
+.box-update {
+    right: 35px;
+}
+
+.box-delete {
+    right: 5px;
+}
+
+.ellipsis {
+    color: #ccc !important;
+}
+
+#uptime, #reload {
+    color: #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 26px;
+    position: absolute;
+    top: -5px;
+}
+
+#reload {
+    font-size: 22px;
+    top: -3px;
+    left: 142px;
+}
