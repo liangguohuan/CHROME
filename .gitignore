@@ -2,4 +2,5 @@
 *.bak
 *.log
 .vscode
+DATA.ws
 dump.php

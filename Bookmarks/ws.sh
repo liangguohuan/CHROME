@@ -4,9 +4,9 @@
 
 while true
 do
-  if [ -e WSDATA.txt ] ; then
-    cat WSDATA.txt
-    echo -n > WSDATA.txt
+  if [ -e DATA.ws ] ; then
+    cat DATA.ws
+    echo -n > DATA.ws
   fi
   sleep 1
 done

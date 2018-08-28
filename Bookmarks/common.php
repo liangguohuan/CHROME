@@ -7,4 +7,4 @@ if (!file_exists('data.db')) {
 // make sure DBNAME and WSDATAFILENAME get WRITE PERMISSION for WEBSERVER
 define('DBNAME', 'data.db');
 define('TBLNAME', 'BOOKMARKS');
-define('WSDATAFILENAME', 'WSDATA.txt');
+define('WSDATAFILENAME', 'DATA.ws');
