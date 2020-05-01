@@ -6,6 +6,7 @@
 // @author       You
 // @match        *://*/*
 // @grant        GM_xmlhttpRequest
+// @require      https://cdn.bootcdn.net/ajax/libs/jquery/3.2.1/jquery.min.js
 // ==/UserScript==
 
 function addToFav(ele) {

@@ -22,7 +22,7 @@ function getTitle(content) {
 
 function doPost(info) {
 	var data = 'act=new&href=' + info.linkUrl + '&src=' + info.srcUrl + '&title=' + encodeURIComponent(info.title);
-	sendRequest('POST', surl, true, data, null);
+    sendRequest('POST', surl, true, data, null);
 }
 
 function genericOnClick(info, tab) {
@@ -30,13 +30,14 @@ function genericOnClick(info, tab) {
 
 	// get title via message
 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-		chrome.tabs.sendMessage(tabs[0].id, {message: "GetTitle"}, function(response) {
-			if (response !== "") {
-				// console.log("do post via message");
-				info.title = response;
+		chrome.tabs.sendMessage(tabs[0].id, {message: "detail"}, function(response) {
+			if (response.title != undefined) {
+                info.title  = response.title;
+                if (response.srcUrl != undefined) {
+                    info.srcUrl = response.srcUrl;
+                }
 				doPost(info);
 			} else {
-				// console.log("do post via xhr");
 				sendRequest('GET', info.linkUrl, true, null, function() {
 					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 						info.title = getTitle(xmlhttp.responseText);
