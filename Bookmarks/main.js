@@ -2,6 +2,7 @@ var table;
 
 $(document).ready(function () {
     table = $('#example').DataTable({
+        'pagingType': 'input',
         'pageLength': 18,
         'lengthMenu': [
             [18, 36, -1],
